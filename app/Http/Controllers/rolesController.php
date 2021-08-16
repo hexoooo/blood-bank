@@ -50,7 +50,7 @@ class rolesController extends Controller
             $role->name=$request->name;
             $role->save();
             $roles= role::paginate(10);
-            return view('role\roles',['roles'=>$roles]);
+            return redirect(url('/roles'));
         }else{abort(403);}
     }
 
@@ -99,7 +99,7 @@ class rolesController extends Controller
             $role->name=$request->newName;
             $role->save();
             $roles= role::paginate(10);
-            return view('role\roles',['roles'=>$roles]);
+            return redirect(url('/roles'));
 
         }else{abort(403);}    
     }
@@ -117,7 +117,7 @@ class rolesController extends Controller
             $role=role::where('id',$id);
             $role->delete();
             $roles= role::paginate(10);
-            return view('role\roles',['roles'=>$roles]);
+            return redirect(url('/roles'));
         }else{abort(403);}
     }
 }

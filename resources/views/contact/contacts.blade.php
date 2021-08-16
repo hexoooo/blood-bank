@@ -60,20 +60,23 @@
             @foreach ($contacts as $c)
    
                     <td>
-                    @php
-                     echo $c->message_title;
-                    @endphp
+                   
+                     {{ $c->message_title;}}
+                    
                     </td>
                     <td>
-                    @php
-                     echo $c->message_body;
-                    @endphp
+                   
+                     {{ $c->message_body;}}                    
                     </td>
 
                   </td>
                   {{-- we may change this to show --}}
                   <td>  
-                    <a method="post" href="{{url('contacts/delete',$c->id)}}" class="btn btn-primary">delete</a>
+                    <form method='post' action='{{url(route('contacts.destroy',$c->id))}}'>
+                      @csrf
+                      <input type="hidden" name='_method' value='delete' />
+                    <button type='submit' class="btn btn-primary">delete num {{$c->id}}</button>
+                    </form>  
                   </td>
 
                

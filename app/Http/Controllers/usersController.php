@@ -61,7 +61,7 @@ class usersController extends Controller
               $user->save();
               $users= user::paginate(10);
     
-              return view('user\users',['users'=>$users]);
+              return redirect(url('/users'));
       //  }else{abort(403);}
       }
   
@@ -118,7 +118,7 @@ class usersController extends Controller
             $user->save();
             $users= user::paginate(10);
   
-            return view('user\users',['users'=>$users]);
+            return redirect(url('/users'));
       //  }else{abort(403);}
       }
   
@@ -135,7 +135,7 @@ class usersController extends Controller
               $user=user::where('id',$id);
               $user->delete();
               $users= user::paginate(10);
-              return view('user\users',['users'=>$users]);
+              return redirect(url('/users'));
      //   }else{abort(403);}
       }
   }

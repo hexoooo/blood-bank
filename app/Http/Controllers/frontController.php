@@ -26,7 +26,9 @@ class frontController extends Controller
         return view('/front/frontAboutUs');
     }
     public function article($id){
-          $posts=post::where('id',$id)->first();
+         
+        $posts=post::where('id',$id)->first();
+         
           $all=post::paginate(10);
 
         return view('/front/article',['id'=>$id,'posts'=>$posts,'all'=>$all]);

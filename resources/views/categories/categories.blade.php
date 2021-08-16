@@ -44,20 +44,24 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $c->name;
-                    @endphp
+           
+                    {{ $c->name;}}
+               
                   </td>
                   <td>  
-                    @php
-                     echo $c->id;
-                    @endphp
+               
+                   {{ $c->id;}}
+                
                   </td>
                   <td>  
                     <a href={{url(route('categories.edit',$c->id))}} class="btn btn-primary">edit num {{$c->id}}</a>
                   </td>
                   <td>  
-                    <a method="post" href={{url('category/delete',$c->id)}} class="btn btn-primary">delete num {{$c->id}}</a>
+                    <form method='post' action='{{url(route('categories.destroy',$c->id))}}'>
+                      @csrf
+                      <input type="hidden" name='_method' value='delete' />
+                    <button type='submit' class="btn btn-primary">delete num {{$c->id}}</button>
+                    </form> 
                   </td>
                 </tr>
       

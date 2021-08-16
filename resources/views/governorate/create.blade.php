@@ -35,7 +35,7 @@
           <h3 class="card-title">new governorate</h3>
         </div>
         <div class="card-body">
-            <form action=/governorate/store method="post">
+          <form action={{url(route('governorates.store'))}} method="post">
               @csrf
                 <div class="card-body">
                   <div class="form-group">

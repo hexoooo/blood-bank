@@ -29,6 +29,7 @@ class categoryController extends Controller
     {
         //here u can add new categories
         if(auth()->user()->hasAnyRole(['admin','writer'])){ 
+
             return view('categories/create');
         }else{abort(403);}
     }
@@ -47,7 +48,7 @@ class categoryController extends Controller
             $category->name=$request->name;
             $category->save();
             $categories= category::paginate(10);
-            return view('categories/categories',['categories'=>$categories]);
+            return redirect(url('/categories'));
         }else{abort(403);}
         }
 
@@ -93,7 +94,7 @@ class categoryController extends Controller
             $category->name=$request->newName;
             $category->save();
             $categories= category::paginate(10);
-            return view('categories/categories',['categories'=>$categories]);
+            return redirect(url('/categories'));
         }else{abort(403);}
 
     }
@@ -112,7 +113,7 @@ class categoryController extends Controller
             $category=category::where('id',$id);
             $category->delete();
             $categories= category::paginate(10);
-            return view('categories/categories',['categories'=>$categories]);
+            return redirect(url('/categories'));
         }else{abort(403);}
         }
 }

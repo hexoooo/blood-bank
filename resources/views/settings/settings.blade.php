@@ -37,41 +37,41 @@
         <div class="card-body">
             <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
                 <thead>
-                <tr role="row"><th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">phone</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">email</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">instagram</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">facebook</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">twitter</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">youtube</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">delete</th>
+                 <tr role="row"><th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">phone</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">email</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">instagram</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">facebook</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">twitter</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">youtube</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">delete</th>
                 </thead>
                 <tbody>
             @foreach ($info as $i)
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $i->phone;
-                    @endphp
+                   
+                    {{ $i->phone;}}
+                    
                   </td>
                   <td>  
-                    @php
-                     echo $i->email;
-                    @endphp
+                   
+                     {{ $i->email;}}
+                    
                   </td>
                   <td>  
-                    @php
-                    echo $i->insta_link;
-                    @endphp
+                   
+                    {{ $i->insta_link;}}
+                    
                   </td>
                   <td>  
-                    @php
-                     echo $i->facebook_link;
-                    @endphp
+                   
+                     {{ $i->facebook_link;}}
+                    
                   </td>
                   <td>  
-                    @php
-                    echo $i->twitter_link;
-                    @endphp
+                   
+                    {{ $i->twitter_link;}}
+                    
                   </td>
                   <td>  
-                    @php
-                     echo $i->youtube_link;
-                    @endphp
+                   
+                     {{ $i->youtube_link;}}
+                    
                   </td>
                   <td>  
                     <a href={{url(route('settings.edit',$i->id))}} class="btn btn-primary">edit num {{$i->id}}</a>

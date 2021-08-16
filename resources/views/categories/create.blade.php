@@ -35,7 +35,7 @@
           <h3 class="card-title">new category</h3>
         </div>
         <div class="card-body">
-            <form action=/category/store method="post">
+            <form action={{url(route('categories.store'))}} method="post">
               @csrf
                 <div class="card-body">
                   <div class="form-group">

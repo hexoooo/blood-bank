@@ -44,26 +44,27 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $p->title;
-                    @endphp
+                    
+                   {{ $p->title;}}
+                   
                   </td>
                   <td>  
-                    @php
-                    echo $p->body;
-                    @endphp
+                    
+                   {{ $p->body;}}
+                   
                   </td>
                   <td>  
-                    @php
-                     echo $p->id;
-                    @endphp
+                    
+                    {{ $p->id;}}
+                   
                   </td>
                   <td>  
                     @foreach ($category as $c)
-                        @php
-                            if ($c->id==$p->category_id)
-                            echo $c->name
-                        @endphp
+                        
+                           @if ($c->id==$p->category_id)
+                           {{ $c->name}}
+                           @endif
+                       
                     @endforeach  
                   </td>
                   <td>
@@ -74,7 +75,11 @@
                     <a href={{url(route('posts.edit',$p->id))}} class="btn btn-primary">edit num {{$p->id}}</a>
                   </td>
                   <td>  
-                    <a method="post" href={{url('post/delete',$p->id)}} class="btn btn-primary">delete num {{$p->id}}</a>
+                    <form method='post' action='{{url(route('posts.destroy',$p->id))}}'>
+                      @csrf
+                      <input type="hidden" name='_method' value='delete' />
+                    <button type='submit' class="btn btn-primary">delete num {{$p->id}}</button>
+                    </form> 
                   </td>
                 </tr>
       

@@ -44,22 +44,22 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $r->name;
-                    @endphp
+                   
+                    {{ $r->name;}}
+                    
                   </td>
                   <td>  
-                    @php
-                     echo $r->id;
-                    @endphp
+                   
+                     {{ $r->id;}}
+                    
                   </td>
                   <td>  
                     @foreach ($r->getPermissionNames() as $p)
-                        @php
+                       
                          
-                            echo ' | ' .  $p . ' | '
+                            {{ ' | ' .  $p . ' | '}}
                            
-                        @endphp
+                        
                 @endforeach
                   </td>
                   <td>  

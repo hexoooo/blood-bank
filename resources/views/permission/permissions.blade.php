@@ -44,14 +44,14 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $p->name;
-                    @endphp
+                    
+                   {{ $p->name;}}
+                   
                   </td>
                   <td>  
-                    @php
-                     echo $p->id;
-                    @endphp
+                    
+                    {{ $p->id;}}
+                   
                   </td>
                   <td>  
                     <a href={{url(route('permissions.edit',$p->id))}} class="btn btn-primary">edit num {{$p->id}}</a>

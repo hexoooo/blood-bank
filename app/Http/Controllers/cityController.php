@@ -52,7 +52,7 @@ class cityController extends Controller
               $city->save();
               $cities= city::paginate(10);
               $governorate= governorate::all();
-              return view('city\cities',['cities'=>$cities,'governorate'=>$governorate]);
+              return redirect(url('/cities'));
             }else{abort(403);}
             }
             
@@ -95,11 +95,12 @@ class cityController extends Controller
           if(auth()->user()->hasAnyRole(['admin','writer'])){ 
               $city= city::where('id',$id)->first();
               $governorate= governorate::all();
+              if($request->newName)
               $city->name=$request->newName;
               $city->governorate_id=$governorate->where('name',$request->newId)->first()->id;
               $city->save();
               $cities= city::paginate(10);
-              return view('city\cities',['cities'=>$cities,'governorate'=>$governorate]);
+              return redirect(url('/cities'));
             }else{abort(403);}
             }
             
@@ -117,7 +118,7 @@ class cityController extends Controller
               $city->delete();
               $cities= city::paginate(10);
               $governorate= governorate::all();
-              return view('city\cities',['cities'=>$cities,'governorate'=>$governorate]);
+              return redirect(url('/cities'));
             }else{abort(403);}
             }
         }

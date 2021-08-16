@@ -89,7 +89,7 @@ class settingsController extends Controller
 
         $info->save();
         $info= ContactInfo::paginate(10);
-        return view('settings/settings',['info'=>$info]);
+        return redirect(url('/settings'));
     }
 
     /**

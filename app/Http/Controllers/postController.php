@@ -46,16 +46,18 @@ class postController extends Controller
       {
           //here we can save the new data
         if(auth()->user()->hasAnyRole(['admin','writer'])){ 
+            $photoName=time() . $request->photo->extension();
             $post= new post;
             $category=category::where('name',$request->id)->first()->id;
             $post->title=$request->title;
             $post->body=$request->body;
-            $post->photo=$request->photo;
+            $post->photo=$photoName;
+            $request->photo->move(public_path('photo'),$photoName);
             $post->category_id=$category;
             $post->save();
             $posts= post::paginate(10);
             $category= category::all();
-            return view('post\posts',['posts'=>$posts,'category'=>$category]);
+            return redirect(url('/posts'));
         }else{abort(403);}
         }
         
@@ -103,11 +105,15 @@ class postController extends Controller
        if($request->body)
        { $post->body=$request->body;}
          if($request->photo)
-         {$post->photo=$request->photo;}
+         {
+            $photoName=time() . $request->photo->extension();
+            $post->photo=$photoName;
+            $request->photo->move(public_path('photo'),$photoName);
+        }
           $post->category_id=$category->where('name',$request->id)->first()->id;
           $post->save();
           $posts= post::paginate(10);
-          return view('\post\posts',['posts'=>$posts,'category'=>$category]);
+          return redirect(url('/posts'));
         }else{abort(403);}
       }
       
@@ -126,7 +132,7 @@ class postController extends Controller
               $post->delete();
               $posts= post::paginate(10);
               $category= category::all();
-              return view('post\posts',['posts'=>$posts,'category'=>$category]);
+              return redirect(url('/posts'));
             }else{abort(403);}
       }
   }

@@ -45,30 +45,30 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $u->name;
-                    @endphp
-                  </td>
-                  <td>  
-                    @php
-                     echo $u->id;
-                    @endphp
+                   
+                    {{$u->name;}}
+                    
                   </td>
                   <td>  
                    
-                        @php
+                     {{$u->id;}}
+                    
+                  </td>
+                  <td>  
+                   
+                       
                             
-                            echo $u->email
-                        @endphp
+                            {{$u->email}}
+                        
                
                   </td>
                   <td>  
                     @foreach ($u->getRoleNames() as $r)
-                        @php
+                       
                          
-                            echo ' | ' . $r . ' | '
+                            {{' | ' . $r . ' | '}}
                            
-                        @endphp
+                        
                 @endforeach
                   </td>
                   <td>  

@@ -36,7 +36,8 @@
           <h3 class="card-title">edit city</h3>
         </div>
         <div class="card-body">
-            <form action=/cities/update/{{$id}} method="post">
+            <form action={{url(route('cities.update',$id))}} method="post">
+              <input type="hidden" name="_method" value="put">
               @csrf
                 <div class="card-body">
                   <div class="form-group">

@@ -123,7 +123,7 @@ class donationController extends Controller
             $donation=DonationRequest::where('id',$id);
             $donation->delete();
             $donations= DonationRequest::paginate(10);
-            return view('donation\donations',['donations'=>$donations]);
+            return redirect(url('/donations'));
         }else{abort(403);}
     }
 }

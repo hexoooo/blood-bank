@@ -44,20 +44,24 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $g->name;
-                    @endphp
+                  
+                    {{ $g->name;}}
+                  
                   </td>
                   <td>  
-                    @php
-                     echo $g->id;
-                    @endphp
+                  
+                     {{ $g->id;}}
+                  
                   </td>
                   <td>  
                     <a href={{url(route('governorates.edit',$g->id))}} class="btn btn-primary">edit num {{$g->id}}</a>
                   </td>
                   <td>  
-                    <a method="post" href={{url('governorate/delete',$g->id)}} class="btn btn-primary">delete num {{$g->id}}</a>
+                    <form method='post' action='{{url(route('governorates.destroy',$g->id))}}'>
+                      @csrf
+                      <input type="hidden" name='_method' value='delete' />
+                    <button type='submit' class="btn btn-primary">delete num {{$g->id}}</button>
+                    </form> 
                   </td>
                 </tr>
       

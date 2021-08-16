@@ -36,7 +36,8 @@
           <h3 class="card-title">edit category</h3>
         </div>
         <div class="card-body">
-            <form action=/category/update/{{$id}} method="post">
+            <form action={{url(route('categories.update',$id))}} method="post">
+              <input type="hidden" name="_method" value="put">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">

@@ -36,7 +36,8 @@
           <h3 class="card-title">edit governorate</h3>
         </div>
         <div class="card-body">
-            <form action=/governorate/update/{{$id}} method="post">
+          <form action={{url(route('governorates.update',$id))}} method="post">
+            <input type="hidden" name="_method" value="put">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">

@@ -8,7 +8,7 @@
 @endsection
 @section('content')
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper"> 
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -36,7 +36,8 @@
           <h3 class="card-title">new post</h3>
         </div>
         <div class="card-body">
-            <form action=/post/update/{{$id}} method="post">
+          <form action={{url(route('posts.update',$id))}} method="post"  enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="put">
               @csrf
                 <div class="card-body">
                   <div class="form-group">

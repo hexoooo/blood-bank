@@ -35,7 +35,7 @@
           <h3 class="card-title">new post</h3>
         </div>
         <div class="card-body">
-            <form action=/post/store method="post">
+          <form action={{url(route('posts.store'))}} method="post" enctype="multipart/form-data">
               @csrf
                 <div class="card-body">
                   <div class="form-group">
@@ -43,7 +43,7 @@
                     <input type="text" class="form-control" name="title" placeholder="Enter name">
                     <label for="exampleInputEmail1">post body</label>
                     <input type="e=text" class="form-control" name="body" placeholder="Enter name">
-                    <div class="form-group">
+                    <div class="form-group"> 
                     {{-- <label for="exampleInputEmail1">post photo</label>
                     <input type="text" class="form-control" name="photo" placeholder="Enter name"> --}}
                     <div class="form-group">

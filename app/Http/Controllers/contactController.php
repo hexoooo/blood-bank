@@ -125,7 +125,7 @@ class contactController extends Controller
             $contact=ContactUs::where('id',$id);
             $contact->delete();
             $contacts= ContactUs::paginate(10);
-            return view('contact\contacts',['contacts'=>$contacts]);
+            return redirect(url('/contacts'));
         }else{abort(403);}
     }
 }

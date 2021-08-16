@@ -8,6 +8,7 @@
 @inject('donations', 'App\Models\DonationRequest')
 @inject('ContactInfo', 'App\Models\ContactUs')
 @inject('users', 'App\Models\user')
+@inject('settings', 'App\Models\ContactInfo')
 @inject('rules', 'Spatie\Permission\Models\Role')
 @inject('permissions', 'Spatie\Permission\Models\permission')
 
@@ -140,6 +141,16 @@
             </div>
             <!-- /.info-box-content -->
           </div>
+          <div class="info-box">
+            <span class="info-box-icon bg-success"><i class="fas fa-user-cog"></i></span>
+    
+            <div class="info-box-content">
+              <span class="info-box-text"><a href="/settings">settings</a></span>
+              <span class="info-box-number">{{$settings->count()}}</span>
+  
+            </div>
+            <!-- /.info-box-content -->
+          </div>
           <!-- /.info-box -->
         </div>
         <div class="col-md-3 col-sm-6 col-12">
@@ -169,7 +180,7 @@
           </div>
         </div>
       </div><!-- /.container-fluid -->
-    </section>
+    <fcatection>
 
     <!-- Main content -->
     <section class="content">

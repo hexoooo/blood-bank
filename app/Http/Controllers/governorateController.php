@@ -45,7 +45,7 @@ class governorateController extends Controller
             $governorate->name=$request->name;
             $governorate->save();
             $governorates= governorate::paginate(10);
-            return view('governorate\governorates',['governorates'=>$governorates]);
+            return redirect(url('/governorates'));
         }else{abort(403);}
     }
 
@@ -89,7 +89,7 @@ class governorateController extends Controller
             $governorate->name=$request->newName;
             $governorate->save();
             $governorates= governorate::paginate(10);
-            return view('governorate\governorates',['governorates'=>$governorates]);
+            return redirect(url('/governorates'));
         }else{abort(403);}
             
         }
@@ -107,7 +107,7 @@ class governorateController extends Controller
             $governorate=governorate::where('id',$id);
             $governorate->delete();
             $governorates= governorate::paginate(10);
-            return view('governorate\governorates',['governorates'=>$governorates]);
+            return redirect(url('/governorates'));
         }else{abort(403);}
         }
 }

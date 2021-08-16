@@ -61,55 +61,59 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $c->name;
-                    @endphp
+                   
+                     {{$c->name;}}
+            
                   </td>
                   <td>  
-                    @php
-                     echo $c->id;
-                    @endphp
+                  
+                    {{$c->id;}}
+                   
                     </td>
                     <td>
-                    @php
-                     echo $c->phone;
-                    @endphp
+                    
+                    {{$c->phone;}}
+              
                     </td>
                     <td>
-                    @php
-                     echo $c->email;
-                    @endphp
+    
+                    {{$c->email;}}
+  
                     </td>
                     <td>
-                    @php
-                     echo $city->where('id',$c->city_id)->first()->name;
-                    @endphp
-                    </td>
-                    <td>
-                    @php
-                     echo $BloodType->where('id',$c->blood_type_id)->first()->name;
-                    @endphp
-                  </td>
-                  <td>  
-                    <a method="post" href="{{url('client/delete',$c->id)}}" class="btn btn-primary">delete</a>
-                  </td>
-                  @php
-                  if ($c->active){
-                  echo('
-
-                  <td>')  ;
-                    echo ("<a method=\"post\" href=/clients/{$c->id}/edit class=\"btn btn-danger\">deactivate</a>")
-                 ; echo ('</td>');
-               
-                }else{
                  
-                  echo('
+                    {{$city->where('id',$c->city_id)->first()->name;}}
+                  
+                    </td>
+                    <td>
+       
+                    {{ $BloodType->where('id',$c->blood_type_id)->first()->name;}}
+             
+                  </td>
+                  <td>  
+                    <form method='post' action='{{url(route('clients.destroy',$c->id))}}'>
+                      @csrf
+                      <input type="hidden" name='_method' value='delete' />
+                    <button type='submit' class="btn btn-primary">delete num {{$c->id}}</button>
+                    </form>  
+                  </td>
+                 
+                  @if ($c->active)
+              
 
-                  <td>')  ;
-                    echo ("<a method=\"post\" href=/clients/{$c->id}/edit class=\"btn btn-info\">activate</a>")
-                  ; echo ('</td>');
-                 }
-                  @endphp
+                  <td>
+                    <a method="post" href="/clients/{{$c->id}}/edit" class="btn btn-danger">deactivate</a>
+                </td>
+               
+                @else
+                 
+                
+
+                  <td>
+                    <a method="post" href="/clients/{{$c->id}}/edit" class="btn btn-info">activate</a>
+               </td>
+                
+                  @endif
                 </tr>
       
           @endforeach

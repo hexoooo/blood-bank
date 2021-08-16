@@ -85,7 +85,7 @@ class resetController extends Controller
         {$client->password=hash::make($request->new_password);
         $client->save();
         $message='password changed';
-        return view('reset/resetpassword',['message'=>$message]);
+        return redirect(url('/reset'));
     }else{
             return view('reset/err');
         }

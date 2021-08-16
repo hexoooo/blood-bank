@@ -49,7 +49,7 @@
                                 <div class="card">
                                     <div class="photo">
                                         <img src='{{asset("photo/$article->photo")}}' class="card-img-top" alt="...">
-                                        <a href="article{{$article->id}}" class="click">more</a>
+                                        <a href="/article/{{$article->id}}" class="click">more</a>
                                     </div>
                                     <a href="#" class="favourite">
                                         <i class="far fa-heart"></i>

@@ -35,7 +35,7 @@
           <h3 class="card-title">new city</h3>
         </div>
         <div class="card-body">
-            <form action=/cities/store method="post">
+          <form action={{url(route('cities.store'))}} method="post">
               @csrf
                 <div class="card-body">
                   <div class="form-group">

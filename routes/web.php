@@ -33,28 +33,16 @@ route::post("/create-new",'frontController@create');
 route::get("/main",function(){return view('welcome');});
 //governorates
 route::resource("/governorates",'governorateController');
-route::post("governorate/store",'governorateController@store');
-route::post("governorate/update/{id}",'governorateController@update');
-route::get("governorate/delete/{id}",'governorateController@destroy');
 // categories
 route::resource("/categories",'categoryController');
-route::post("category/store",'categoryController@store');
-route::post("category/update/{id}",'categoryController@update');
-route::get("category/delete/{id}",'categoryController@destroy');
 //cities
 route::resource("/cities",'cityController');
-route::post("cities/store",'cityController@store');
-route::post("cities/update/{id}",'cityController@update');
-route::get("cities/delete/{id}",'cityController@destroy');
 //clients
 route::resource("/clients",'clientController');
-route::get("client/delete/{id}",'clientController@destroy');
 //donations
 route::resource("/donations",'donationController');
-route::get("donations/delete/{id}",'donationController@destroy');
 //contacts
 route::resource("/contacts",'contactController');
-route::get("contacts/delete/{id}",'contactController@destroy');
 //settings
 route::resource("/settings",'settingsController');
 //reset password
@@ -68,10 +56,7 @@ route::resource("/users",'usersController');
 
 // posts
 route::resource("/posts",'postController');
-route::post("post/store",'postController@store');
-route::post("post/update/{id}",'postController@update');
-route::get("post/delete/{id}",'postController@destroy');
-route::get("post/create",'postController@create');
+
 
 
 

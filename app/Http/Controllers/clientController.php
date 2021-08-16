@@ -64,7 +64,7 @@ class clientController extends Controller
      */
     public function show($id)
     {
-        dd("hello from show");
+ 
         //
     }
 
@@ -83,14 +83,14 @@ class clientController extends Controller
             $client->active=0;
             $client->save();
             $clients= client::paginate(10);
-            return view('\client\clients',['clients'=>$clients]);
+            return redirect(url('/clients'));
 
         }else{
 
             $client->active=1;
             $client->save();
             $clients= client::paginate(10);
-            return view('\client\clients',['clients'=>$clients]);
+            return redirect(url('/clients'));
         }
     }else{abort(403);}
   }
@@ -120,7 +120,7 @@ class clientController extends Controller
         $client=client::where('id',$id);
         $client->delete();
         $clients= client::paginate(10);
-        return view('client\clients',['clients'=>$clients]);
+        return redirect(url('/clients'));
     }else{abort(403);}
 }
 

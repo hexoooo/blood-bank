@@ -47,48 +47,52 @@
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $DonationRequest->name;
-                    @endphp
+                  
+                    {{ $DonationRequest->name;}}
+                 
                   </td>
                   <td>  
-                    @php
-                    echo $DonationRequest->bags_num;
-                    @endphp
+                  
+                    {{ $DonationRequest->bags_num;}}
+                 
                   </td>
                   <td>  
-                    @php
-                    echo $DonationRequest->hospital_address;
-                    @endphp
+                  
+                    {{ $DonationRequest->hospital_address;}}
+                 
                   </td>
                   <td>  
-                    @php
-                     echo $DonationRequest->id;
-                    @endphp
+                  
+                     {{ $DonationRequest->id;}}
+                 
                     </td>
                     <td>
-                    @php
-                     echo $DonationRequest->phone;
-                    @endphp
+                  
+                     {{ $DonationRequest->phone;}}
+                 
                     </td>
                     <td>
-                    @php
-                     echo $DonationRequest->age;
-                    @endphp
+                  
+                     {{ $DonationRequest->age;}}
+                 
                     </td>
                     <td>
-                    @php
-                     echo $city->where('id',$DonationRequest->city_id)->first()->name;
-                    @endphp
+                  
+                     {{ $city->where('id',$DonationRequest->city_id)->first()->name;}}
+                 
                     </td>
                     <td>
-                    @php
-                     echo $BloodType->where('id',$DonationRequest->blood_type_id)->first()->name;
-                    @endphp
+                  
+                     {{ $BloodType->where('id',$DonationRequest->blood_type_id)->first()->name;}}
+                    
                   </td>
                   {{-- we may change this to show --}}
                   <td>  
-                    <a method="post" href="{{url('donations/delete',$DonationRequest->id)}}" class="btn btn-primary">delete</a>
+                    <form method='post' action='{{url(route('donations.destroy',$DonationRequest->id))}}'>
+                      @csrf
+                      <input type="hidden" name='_method' value='delete' />
+                    <button type='submit' class="btn btn-primary">delete num {{$DonationRequest->id}}</button>
+                    </form> 
                   </td>
                  
                 </tr>

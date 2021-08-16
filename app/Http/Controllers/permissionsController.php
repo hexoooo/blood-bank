@@ -47,7 +47,7 @@ class permissionsController extends Controller
             $permission->name=$request->name;
             $permission->save();
             $permissions= permission::paginate(10);
-            return view('permission\permissions',['permissions'=>$permissions]);
+            return redirect(url('/permissions'));
         }else{abort(403);}
     }
 
@@ -92,7 +92,7 @@ class permissionsController extends Controller
             $permission->name=$request->newName;
             $permission->save();
             $permissions= permission::paginate(10);
-            return view('permission\permissions',['permissions'=>$permissions]);
+            return redirect(url('/permissions'));
         }else{abort(403);}
 
     }
@@ -110,7 +110,7 @@ class permissionsController extends Controller
             $permission=permission::where('id',$id);
             $permission->delete();
             $permissions= permission::paginate(10);
-            return view('permission\permissions',['permissions'=>$permissions]);
+            return redirect(url('/permissions'));
         }else{abort(403);}
     }
 }

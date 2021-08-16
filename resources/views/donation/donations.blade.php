@@ -57,58 +57,63 @@
                 <tr role="row"><th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">name</th><th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">bags num</th><th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">hospital location</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">id</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">phone</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">age</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">city</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">blood type</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">delete</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">show</th>
                 </thead>
                 <tbody>
-            @foreach ($donations as $c)
+            @foreach ($donations as $d)
         
                 <tr class="odd">
                   <td>  
-                    @php
-                    echo $c->name;
-                    @endphp
+                  
+                  {{ $d->name;}}
+                   
                   </td>
                   <td>  
-                    @php
-                    echo $c->bags_num;
-                    @endphp
+                  
+                  {{ $d->bags_num;}}
+                   
                   </td>
                   <td>  
-                    @php
-                    echo $c->hospital_address;
-                    @endphp
+                  
+                  {{ $d->hospital_address;}}
+                   
                   </td>
                   <td>  
-                    @php
-                     echo $c->id;
-                    @endphp
+                  
+                   {{ $d->id;}}
+                   
                     </td>
                     <td>
-                    @php
-                     echo $c->phone;
-                    @endphp
+                  
+                   {{ $d->phone;}}
+                   
                     </td>
                     <td>
-                    @php
-                     echo $c->age;
-                    @endphp
+                  
+                   {{ $d->age;}}
+                   
                     </td>
                     <td>
-                    @php
-                     echo $city->where('id',$c->city_id)->first()->name;
-                    @endphp
+                  
+                   {{ $city->where('id',$d->city_id)->first()->name;}}
+                   
                     </td>
                     <td>
-                    @php
-                     echo $BloodType->where('id',$c->blood_type_id)->first()->name;
-                    @endphp
+                  
+                   {{ $BloodType->where('id',$d->blood_type_id)->first()->name;}}
+                   
                   </td>
                   {{-- we may change this to show --}}
-                  <td>  
-                    <a method="post" href="{{url('donations/delete',$c->id)}}" class="btn btn-primary">delete</a>
-                  </td>
-                 
+         
+                     <td>  
+                      <form method='post' action='{{url(route('donations.destroy',$d->id))}}'>
+                        @csrf
+                        <input type="hidden" name='_method' value='delete' />
+                      <button type='submit' class="btn btn-primary">delete num {{$d->id}}</button>
+                      </form>  
+                    </td>  
+                  
                   
 
                   <td>
-                  <a method="post" href="{{route('donations.show',$c->id)}}" class="btn btn-danger">show</a>
+                  <a method="post" href="{{route('donations.show',$d->id)}}" class="btn btn-danger">show</a>
              </td>
                
                 </tr>
