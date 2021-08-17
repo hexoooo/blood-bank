@@ -38,15 +38,15 @@ class generalController extends Controller
         $categories=category::all();
        return $this->results(1,'success',$categories);
     }
-    public function BloodTypes(){
+    public function bloodTypes(){
         $BloodTypes=BloodType::all();
        return $this->results(1,'success',$BloodTypes);
     }
-    public function ContactUs(){
+    public function contactUs(){
         $ContactUs=ContactUs::all();
        return $this->results(1,'success',$ContactUs);
     }
-    public function AppInfo(){
+    public function appInfo(){
         $AppInfo=AppInfo::all();
        return $this->results(1,'success',$AppInfo);
     }

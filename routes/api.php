@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\generalController;
-use App\Http\Controllers\authController;
+use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,24 +19,24 @@ use App\Http\Controllers\authController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/governorates', [generalController::class,'governorates']);
-Route::get('/cities', [generalController::class,'cities']);
-Route::get('/categories', [generalController::class,'categories']);
-Route::get('/blood-types', [generalController::class,'BloodTypes']);
-Route::get('/contact-us', [generalController::class,'ContactUs']);
-Route::get('/app-info', [generalController::class,'AppInfo']);
-Route::post('/register', [authController::class,'register']);
-Route::post('/login', [authController::class,'login']);
-Route::post('/reset-password', [authController::class,'ResetPassword']);
-Route::group(['middleware'=>'authController:api'],function () { 
-    Route::get('/set-new-password', [authController::class,'SetNewPassword']);   
-    Route::get('/notifications', [authController::class,'notifications']);//incompelete
-    Route::get('/profile-edit', [authController::class,'ProfileEdit']);
-    Route::get('/profile', [authController::class,'profile']);
-    Route::get('/posts', [authController::class,'posts']);
-    Route::get('/fav-posts', [authController::class,'FavPosts']);
-    Route::get('/make-donations', [authController::class,'MakeDonations']);
-    Route::get('/donations', [authController::class,'donations']);
+Route::get('/governorates', [GeneralController::class,'governorates']);
+Route::get('/cities', [GeneralController::class,'cities']);
+Route::get('/categories', [GeneralController::class,'categories']);
+Route::get('/blood-types', [GeneralController::class,'bloodTypes']);
+Route::get('/contact-us', [GeneralController::class,'contactUs']);
+Route::get('/app-info', [GeneralController::class,'appInfo']);
+Route::post('/register', [AuthController::class,'register']);
+Route::post('/login', [AuthController::class,'login']);
+Route::post('/reset-password', [AuthController::class,'resetPassword']);
+Route::group(['middleware'=>'AuthController:api'],function () { 
+    Route::get('/set-new-password', [AuthController::class,'setNewPassword']);   
+    Route::get('/notifications', [AuthController::class,'notifications']);//incompelete
+    Route::get('/profile-edit', [AuthController::class,'profileEdit']);
+    Route::get('/profile', [AuthController::class,'profile']);
+    Route::get('/posts', [AuthController::class,'posts']);
+    Route::get('/fav-posts', [AuthController::class,'favPosts']);
+    Route::get('/make-donations', [AuthController::class,'makeDonations']);
+    Route::get('/donations', [AuthController::class,'donations']);
    
     
     

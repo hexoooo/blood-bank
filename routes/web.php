@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\general;
 use App\Http\Controllers\authController;
-use App\Http\Controllers\governorateController;
-use App\Http\Controllers\clientController;
+use App\Http\Controllers\GovernorateController;
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,46 +16,46 @@ use App\Http\Controllers\clientController;
 |
 */
 //front links
-route::get("/frontHome",'frontController@home')->name("frontHome");
-route::get("/frontAboutUs",'frontController@AboutUs');
-route::get("/article/{id}",'frontController@article');
-route::get("/donationRequest/{id}",'frontController@donationRequest');
-route::get("/donationRequests",'frontController@allDontions');
-route::get("/contact-us",'frontController@contactUs');
-route::post("/send",'frontController@send');
-route::get("/signin-account",'frontController@signinAccount');
-route::post("/signin",'frontController@login');
-route::get("/create-account",'frontController@createAccount');
-route::post("/create-new",'frontController@create');
-// route::get("/favourite/{id}",'frontController@favourite');
+route::get("/front-home",'FrontController@home')->name("frontHome");
+route::get("/front-about-us",'FrontController@aboutUs');
+route::get("/article/{id}",'FrontController@article');
+route::get("/donation-request/{id}",'FrontController@donationRequest');
+route::get("/donation-requests",'FrontController@allDontions');
+route::get("/contact-us",'FrontController@contactUs');
+route::post("/send",'FrontController@send');
+route::get("/signin-account",'FrontController@signinAccount');
+route::post("/signin",'FrontController@login');
+route::get("/create-account",'FrontController@createAccount');
+route::post("/create-new",'FrontController@create');
+// route::get("/favourite/{id}",'FrontController@favourite');
 
 //end front links
 route::get("/main",function(){return view('welcome');});
 //governorates
-route::resource("/governorates",'governorateController');
+route::resource("/governorates",'GovernorateController');
 // categories
-route::resource("/categories",'categoryController');
+route::resource("/categories",'CategoryController');
 //cities
-route::resource("/cities",'cityController');
+route::resource("/cities",'CityController');
 //clients
-route::resource("/clients",'clientController');
+route::resource("/clients",'ClientController');
 //donations
-route::resource("/donations",'donationController');
+route::resource("/donations",'DonationController');
 //contacts
-route::resource("/contacts",'contactController');
+route::resource("/contacts",'ContactController');
 //settings
-route::resource("/settings",'settingsController');
+route::resource("/settings",'SettingsController');
 //reset password
-route::resource("/reset",'resetController');
+route::resource("/reset",'ResetController');
 //rules
-route::resource("/roles",'rolesController');
+route::resource("/roles",'RoleController');
 //permissions
-route::resource("/permissions",'permissionsController');
+route::resource("/permissions",'PermissionController');
 //users
-route::resource("/users",'usersController');
+route::resource("/users",'UserController');
 
 // posts
-route::resource("/posts",'postController');
+route::resource("/posts",'PostController');
 
 
 

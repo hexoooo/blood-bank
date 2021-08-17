@@ -124,44 +124,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/frontHome">home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/frontAboutUs">about us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">articles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/donationRequests">donation requests</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/frontAboutUs">who are us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contact-us">contact us</a>
-                            </li>
-                        </ul>
-                        
-                        <!--not a member-->
-                        <div class="accounts">
-                            <a href="/signin-account" class="signin">sign in</a>
-                            <a href="/create-account" class="create">create new account</a>
-                        </div>
-                        
-                        <!--I'm a member
-
-                        <a href="#" class="donate">
-                            <img src="imgs/transfusion.svg">
-                            <p>طلب تبرع</p>
-                        </a>
-
-                        -->
-                        
-                    </div>
+                    @yield('active')
                 </div>
             </nav>
         </div>
@@ -180,12 +143,12 @@
                         </div>
                         <div class="pages col-md-4">
                             <div class="list-group" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-home-list" href="index-ltr.html" role="tab" aria-controls="home">Home</a>
-                                <a class="list-group-item list-group-item-action" id="list-profile-list" href="#" role="tab" aria-controls="profile">About us</a>
+                                <a class="list-group-item list-group-item-action active" id="list-home-list" href="/front-home" role="tab" aria-controls="home">Home</a>
+                                <a class="list-group-item list-group-item-action" id="list-profile-list" href="/front-about-us" role="tab" aria-controls="profile">About us</a>
                                 <a class="list-group-item list-group-item-action" id="list-messages-list" href="#" role="tab" aria-controls="messages">Articles</a>
-                                <a class="list-group-item list-group-item-action" id="list-settings-list" href="donation-requests-ltr.html" role="tab" aria-controls="settings">Donation requests</a>
-                                <a class="list-group-item list-group-item-action" id="list-settings-list" href="who-are-us-ltr.html" role="tab" aria-controls="settings">Who are us</a>
-                                <a class="list-group-item list-group-item-action" id="list-settings-list" href="contact-us-ltr.html" role="tab" aria-controls="settings">Contact us</a>
+                                <a class="list-group-item list-group-item-action" id="list-settings-list" href="/donation-requests" role="tab" aria-controls="settings">Donation requests</a>
+                                <a class="list-group-item list-group-item-action" id="list-settings-list" href="/front-about-us" role="tab" aria-controls="settings">Who are us</a>
+                                <a class="list-group-item list-group-item-action" id="list-settings-list" href="/contact-us" role="tab" aria-controls="settings">Contact us</a>
                             </div>
                         </div>
                         <div class="stores col-md-4">

@@ -77,7 +77,7 @@ class authController extends Controller
 
 
     }
-    public function ResetPassword(request $request){
+    public function resetPassword(request $request){
         $client=client::where('phone',$request->phone)->first();
         if ($client){
             Mail::to($client->email)
@@ -87,7 +87,7 @@ class authController extends Controller
             return $this->results(0,'you can\'t reset please try again with another phone',);
           }
     }
-    public function SetNewPassword(request $request){
+    public function setNewPassword(request $request){
         $code=$request->passcode;
    
         $client=client::where('phone',$request->phone)->first();
@@ -123,7 +123,7 @@ class authController extends Controller
         return $this->results(1,'success',$notifications);
 
     }
-    public function ProfileEdit(request $request){
+    public function profileEdit(request $request){
          $this->edit($request,'name');
          $this->edit($request,'email');
          $this->edit($request,'dob');
@@ -149,12 +149,12 @@ class authController extends Controller
             return $this->results(1,'here is all posts',post::all());
         }
     }
-    public function FavPosts(request $request){
+    public function favPosts(request $request){
         
             $request->user()->post()->toggle($request->post_id);
             return $this->results(1,'your fav posts are here',$request->user()->post());
     }
-    public function MakeDonations(request $request){
+    public function makeDonations(request $request){
          $DonationRequest=new DonationRequest;
          $DonationRequest->name=$request->name;
          $DonationRequest->age=$request->age;

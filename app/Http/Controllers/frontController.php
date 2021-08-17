@@ -20,10 +20,10 @@ class frontController extends Controller
         $donationRequests=DonationRequest::paginate(10);
         $bloodTypes=BloodType::all();
         $cities=city::all();
-        return view('/front/frontHome',['posts'=>$posts,'bloodTypes'=>$bloodTypes,'cities'=>$cities,'donationRequests'=>$donationRequests]);
+        return view('/front/front_home',['posts'=>$posts,'bloodTypes'=>$bloodTypes,'cities'=>$cities,'donationRequests'=>$donationRequests]);
     }
-    public function AboutUs(){
-        return view('/front/frontAboutUs');
+    public function aboutUs(){
+        return view('/front/front_about_us');
     }
     public function article($id){
          
@@ -37,7 +37,7 @@ class frontController extends Controller
           $donationRequest=donationRequest::where('id',$id)->first();
 
 
-        return view('/front/donationRequest',['id'=>$id,'donationRequest'=>$donationRequest]);
+        return view('/front/donation_request',['id'=>$id,'donationRequest'=>$donationRequest]);
     }
     public function allDontions(request $request){
         if ($request){
@@ -86,7 +86,7 @@ class frontController extends Controller
           $contactInfo=contactInfo::first();
 
 
-        return view('/front/contactUs',['contactInfo'=>$contactInfo]);
+        return view('/front/contact_us',['contactInfo'=>$contactInfo]);
     }
     public function send(request $request){
           $contactUs=new contactUs ;
@@ -96,7 +96,7 @@ class frontController extends Controller
           $contactInfo=contactInfo::first();
 
 
-        return view('/front/contactUs',['contactInfo'=>$contactInfo]);
+        return view('/front/contact_us',['contactInfo'=>$contactInfo]);
     }
     public function login(request $request){
 
@@ -104,11 +104,11 @@ class frontController extends Controller
  
          if(hash::check($request->password,$client->password)){
     
-          return redirect(url(route('frontHome')));
+          return redirect(url(route('front-home')));
          }else{dd('no');}
 
 
-        return view('/front/contactUs',['contactInfo'=>$contactInfo]);
+        return view('/front/contact_us',['contactInfo'=>$contactInfo]);
     }
     public function create(request $request){
 
@@ -126,7 +126,7 @@ class frontController extends Controller
          $client->save();
 
          
-         return redirect(url(route('frontHome')));
+         return redirect(url(route('front-home')));
     }
     public function signinAccount(){
 
@@ -135,7 +135,7 @@ class frontController extends Controller
     public function createAccount(){
         $city= city::all();
         $BloodType= BloodType::all();
-        return view('/front/createAccount',['city'=>$city,'BloodType'=>$BloodType]);
+        return view('/front/create_account',['city'=>$city,'BloodType'=>$BloodType]);
     }
     // public function favourite($id){
     //       $post=post::where('id',$id)->first();

@@ -1,4 +1,44 @@
-   @extends('front/frontLayout')
+   @extends('front/front_layout')
+   @section('active')
+   <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="/front-home">home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/front-about-us">about us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">articles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/donation-requests">donation requests</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/front-about-us">who are us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/contact-us">contact us</a>
+        </li>
+    </ul>
+    
+    <!--not a member-->
+    <div class="accounts">
+        <a href="/signin-account" class="signin">sign in</a>
+        <a href="/create-account" class="create">create new account</a>
+    </div>
+    
+    <!--I'm a member
+
+    <a href="#" class="donate">
+        <img src="imgs/transfusion.svg">
+        <p>طلب تبرع</p>
+    </a>
+
+    -->
+    
+</div>
+   @endsection
    @section('content')
    @inject('contactInfo', 'App\Models\ContactInfo')
         <!--intro-->
@@ -152,11 +192,11 @@
                                 <li><span>Hospital:</span> {{$request->hospital_address}}</li>
                                 <li><span>City:</span>{{$request->city()->first()->name}}</li>
                             </ul>
-                            <a href="/donationRequest/{{$request->id}}">Details</a>
+                            <a href="/donation-request/{{$request->id}}">Details</a>
                         </div>
                         @endforeach
                     <div class="more">
-                        <a href="/donationRequests">More</a>
+                        <a href="/donation-requests">More</a>
                     </div>
                 </div>
             </div>
