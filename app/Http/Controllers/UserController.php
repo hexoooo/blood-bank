@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\PermissionRegistrar;
 use Spatie\Permission\Traits\HasRoles;
 
-class usersController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
